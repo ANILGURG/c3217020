@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        function gcd(a, b) {
+            while (b !== 0) {
+                let temp = b;
+                b = a % b;
+                a = temp;
+            }
+            return a;
+        }
+        function lcm(a, b) {
+            return (a * b) / gcd(a, b);
+        }
+        function findLCM(range) {
+            let result = 1;
+            for (let i = 1; i <= range; i++) {
+                result = lcm(result, i);
+            }
+            return result;
+        }
+        window.onload = function() {
+            const result = findLCM(10);
+            document.getElementById('result').textContent =  '答えは' + result;
+        }
+    </script>
+</head>
+<body>
+    <h1>1~10で割り切れる数字</h1>
+    <p>1,2,3,4,5,6,7,8,9,10で<br>
+        割り切れるの数値をjava scriptで決める。</p>
+    <button>結果を見る</button>
+    
+    <div id="result"></div>
+
+
+</body>
+</html>
